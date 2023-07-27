@@ -136,6 +136,7 @@ class _ChessBoardState extends State<ChessBoard> {
     isWhiteTurn = !isWhiteTurn;
   }
 
+  /// Calculate valid moves accounting if the king is "Check" or not
   List<List<int>> calculateRealValidMoves(
       int row, int col, ChessPiece? piece, bool checkSimulation) {
     ///
@@ -223,8 +224,8 @@ class _ChessBoardState extends State<ChessBoard> {
           Expanded(
             flex: 3,
             child: Container(
-              width: 600,
-              height: 400,
+              width: 700,
+              // height: 400,
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -282,9 +283,14 @@ class _ChessBoardState extends State<ChessBoard> {
               // margin: EdgeInsets.all(40),
               width: constraints.maxWidth * 0.8,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.amber,
-              ),
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.orange.withOpacity(0.4),
+                  boxShadow: [
+                    BoxShadow(
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        color: Theme.of(context).shadowColor.withOpacity(0.3)),
+                  ]),
               child: Padding(
                 padding: const EdgeInsets.all(9.0),
                 child: Row(
